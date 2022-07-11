@@ -1,0 +1,5 @@
+name: 'Assignment'
+description: 'Module on Assignment'
+type: module
+core_version_requirement: ^9
+package: custom

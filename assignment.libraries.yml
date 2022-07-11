@@ -1,0 +1,7 @@
+assignment.library:
+  version: 1.x
+  js:
+    js/alertName.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings

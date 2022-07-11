@@ -1,0 +1,7 @@
+services:
+  assignment.demoservice:
+    class: Drupal\assignment\Services\demoservice
+    arguments: ['@current_user']
+  assignment.articleservice:
+    class: Drupal\assignment\Services\articleservice
+    arguments: ['@entity_type.manager']

@@ -1,0 +1,65 @@
+<?php
+use Drupal\Core\Entity\EntityInterface;
+function assignment_entity_insert(EntityInterface $entity){
+    if($entity->bundle()=='article'){
+        $node = \Drupal::routeMatch()->getParameter('node');
+        $nid=$entity->id();
+        // dump($nid);
+        // exit;
+        $current_user = \Drupal::currentUser();
+        $uid = $current_user->id();
+        $title=$entity->get('title')->getString();
+        $title.=' Dinesh';
+        $ip=getHostByName(getHostName());
+        $ut=\Drupal::time()->getRequestTime();
+        // $ut=date('H:i:s',$ut);
+
+        // dump($nid);
+        // exit;
+
+        $db=\Drupal::database();
+        $query=$db->insert('art_table')
+        ->fields([
+            'uid'=>$uid,
+            'nid'=>$nid,
+            'title'=>$title,
+            'ip'=>$ip,
+            'created'=>$ut,
+        ])->execute();
+
+    }
+}
+
+function assignment_entity_update(EntityInterface $entity){
+    if($entity->bundle()=='article'){
+        $title=$entity->get('title')->getString();
+        // dump($title);
+        // exit;
+        $title.='Dinesh';
+        $db=\Drupal::database();
+        $db->update('art_table')->fields([
+            'title'=>$title
+        ])
+        ->condition('nid',$entity->id())
+        ->execute();
+
+    }
+}
+
+function assignment_entity_delete(EntityInterface $entity){
+    if($entity->bundle()=='article'){
+        $db=\Drupal::database();
+        $db->delete('art_table')
+        ->condition('nid',$entity->id())
+        ->execute();
+    }
+}
+
+function assignment_theme($existing, $type, $theme, $path) {
+    return [
+      'demoblock' => [
+        'variables' => ['name' => NULL,
+        'age' => NULL],
+      ],
+    ];
+  }

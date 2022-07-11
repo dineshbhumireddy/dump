@@ -1,0 +1,63 @@
+assignment.form:
+  path: '/form'
+  defaults:
+    _form: 'Drupal\assignment\Form\details'
+    _title: 'My form'
+  requirements:
+    _permission: 'access content'
+
+assignment.show:
+  path: '/show'
+  defaults:
+    _controller: 'Drupal\assignment\Controller\assignmentController::show'
+    _title: 'Details'
+  requirements:
+    _permission: 'access content'
+
+assignment.update:
+  path: '/update/{id}'
+  defaults:
+    _form: 'Drupal\assignment\Form\update'
+    _title: 'Update Form'
+  requirements:
+    _permission: 'access content'
+
+assignment.delete:
+  path: '/delete/{id}'
+  defaults:
+    _form: 'Drupal\assignment\Form\confirm'
+    _title: 'Delete Form'
+  requirements:
+    _permission: 'access content'
+
+assignment.config:
+  path: '/config'
+  defaults:
+    _form: 'Drupal\assignment\Form\configform'
+    _title: 'Config form'
+  requirements:
+    _permission: 'administer site configuration'
+
+assignment.article:
+  path: '/create'
+  defaults:
+    _form: 'Drupal\assignment\Form\articleForm'
+    _title: 'Article form'
+  requirements:
+    _permission: 'access content'
+
+assignment.ajax:
+  path: '/ajax'
+  defaults:
+    _form: 'Drupal\assignment\Form\ajaxForm'
+    _title: 'Title Form'
+  requirements:
+    _permission: 'access content'
+
+assignment.demo:
+  path: '/demo'
+  defaults:
+    _form: 'Drupal\assignment\Form\demoform'
+    _title: 'Title Form'
+  requirements:
+    _permission: 'access content'
